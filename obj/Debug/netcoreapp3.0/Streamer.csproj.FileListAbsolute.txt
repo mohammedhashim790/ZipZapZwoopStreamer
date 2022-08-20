@@ -1,0 +1,5 @@
+E:\Projects - Others\ZipZapZwoop\FileStreamer\Streamer\obj\Debug\netcoreapp3.0\Streamer.csprojAssemblyReference.cache
+E:\Projects - Others\ZipZapZwoop\FileStreamer\Streamer\obj\Debug\netcoreapp3.0\Streamer.AssemblyInfoInputs.cache
+E:\Projects - Others\ZipZapZwoop\FileStreamer\Streamer\obj\Debug\netcoreapp3.0\Streamer.AssemblyInfo.cs
+E:\Projects - Others\ZipZapZwoop\FileStreamer\Streamer\obj\Debug\netcoreapp3.0\Streamer.csproj.CoreCompileInputs.cache
+E:\Projects - Others\ZipZapZwoop\FileStreamer\Streamer\obj\Debug\netcoreapp3.0\Streamer.MvcApplicationPartsAssemblyInfo.cache

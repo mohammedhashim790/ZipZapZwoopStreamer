@@ -1,0 +1,37 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:60174",
+      "sslPort": 44335
+    }
+  },
+  "$schema": "http://json.schemastore.org/launchsettings.json",
+  "profiles": {
+    "IIS Express": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "download/6a1830ca-fa95-47a5-a42d-64d77406719d",
+      "TableName": "Session-uwm6jl64dfcbrgnkyratx7wdim-dev",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "SessionTableName": "Session-2adlfeoqwvgqhh3rrhfbn6shbq-dev",
+        "StorageURL": "https://zipzapzwoop-storage115812-dev.s3.ap-south-1.amazonaws.com/public/res"
+      }
+    },
+    "Streamer": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "download/public/6a1830ca-fa95-47a5-a42d-64d77406719d",
+      "TableName": "Session-qkijcxv4zrfbdf4hzhzqotmp6a-prod",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "SessionTableName": "Session-qkijcxv4zrfbdf4hzhzqotmp6a-prod",
+        "StorageURL": "https://zipzapzwoop-storage205633-prod.s3.ap-south-1.amazonaws.com/public/res"
+      },
+      "applicationUrl": "https://localhost:5001;http://localhost:5000"
+    }
+
+  }
+}

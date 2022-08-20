@@ -1,0 +1,15 @@
+E:\Projects - Others\ZipZapZwoop\FileStreamer\Streamer\bin\Debug\netcoreapp3.1\publish\Streamer
+E:\Projects - Others\ZipZapZwoop\FileStreamer\Streamer\bin\Debug\netcoreapp3.1\publish\appsettings.Development.json
+E:\Projects - Others\ZipZapZwoop\FileStreamer\Streamer\bin\Debug\netcoreapp3.1\publish\appsettings.json
+E:\Projects - Others\ZipZapZwoop\FileStreamer\Streamer\bin\Debug\netcoreapp3.1\publish\aws-beanstalk-tools-defaults.json
+E:\Projects - Others\ZipZapZwoop\FileStreamer\Streamer\bin\Debug\netcoreapp3.1\publish\Streamer.dll
+E:\Projects - Others\ZipZapZwoop\FileStreamer\Streamer\bin\Debug\netcoreapp3.1\publish\Streamer.deps.json
+E:\Projects - Others\ZipZapZwoop\FileStreamer\Streamer\bin\Debug\netcoreapp3.1\publish\Streamer.runtimeconfig.json
+E:\Projects - Others\ZipZapZwoop\FileStreamer\Streamer\bin\Debug\netcoreapp3.1\publish\Streamer.pdb
+E:\Projects - Others\ZipZapZwoop\FileStreamer\Streamer\bin\Debug\netcoreapp3.1\publish\AWSSDK.Core.dll
+E:\Projects - Others\ZipZapZwoop\FileStreamer\Streamer\bin\Debug\netcoreapp3.1\publish\AWSSDK.DynamoDBv2.dll
+E:\Projects - Others\ZipZapZwoop\FileStreamer\Streamer\bin\Debug\netcoreapp3.1\publish\AWSSDK.S3.dll
+E:\Projects - Others\ZipZapZwoop\FileStreamer\Streamer\bin\Debug\netcoreapp3.1\publish\DotNetZip.dll
+E:\Projects - Others\ZipZapZwoop\FileStreamer\Streamer\bin\Debug\netcoreapp3.1\publish\Newtonsoft.Json.dll
+E:\Projects - Others\ZipZapZwoop\FileStreamer\Streamer\bin\Debug\netcoreapp3.1\publish\ICSharpCode.SharpZipLib.dll
+E:\Projects - Others\ZipZapZwoop\FileStreamer\Streamer\bin\Debug\netcoreapp3.1\publish\System.Text.Encoding.CodePages.dll
