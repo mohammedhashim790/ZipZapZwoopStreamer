@@ -1,6 +1,6 @@
 
 {
-    "region" : "ap-south-1",
+    "region" : "us-east-1",
     "configuration" : "Release",
     "framework"     : "netcoreapp3.1",
     "self-contained" : false,
@@ -11,12 +11,12 @@
     "additional-options"   : "",
     "solution-stack"       : "64bit Amazon Linux 2 v2.3.4 running .NET Core",
     "environment-type"     : "LoadBalanced",
-    "cname"                : "streamer-test",
+    "cname"                : "streamer-prod",
     "instance-type"        : "t3a.medium",
-    "key-pair"             : "Z3FileZipper",
+    "key-pair"             : "ZipS3File",
     "instance-profile"     : "aws-elasticbeanstalk-ec2-role",
     "service-role"         : "aws-elasticbeanstalk-service-role",
     "proxy-server"         : "nginx",
-    "loadbalancer-type"    : "classic",
+    "loadbalancer-type"    : "application",
     "health-check-url"     : "/"
 }

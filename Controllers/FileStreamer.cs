@@ -92,6 +92,8 @@ namespace Streamer.Controllers
                 "," +
                 "StorageURl :" +
                 this.TestUrl +
+                "," +
+                "New Version update" +
                 "}");
         }
 
@@ -181,6 +183,8 @@ namespace Streamer.Controllers
                 try
                 {
                     zipOutputStream.SetLevel(0);
+                    zipOutputStream.UseZip64 = UseZip64.Off;
+                    zipOutputStream.IsStreamOwner = false;
                     foreach (FileObjectParams file in files)
                     {
                         var name = (file.relativePath == null || file.relativePath == "") ? file.key : file.relativePath;
@@ -294,7 +298,7 @@ namespace Streamer.Controllers
 
 
         [HttpGet("{sessionId}")]
-        public ObjectResult StreamDownloadFrom(
+        public void StreamDownloadFrom(
             [FromRoute] string sessionId
             )
         {
@@ -336,10 +340,11 @@ namespace Streamer.Controllers
 
             if(session == "None")
             {
-                return BadRequest("{" +
-                    "id : " + ZipFileObjectResults.FILE_NOT_FOUND + "," +
-                    "Message : File Not Found" +
-                    "}");
+                return; 
+                //BadRequest("{" +
+                //    "id : " + ZipFileObjectResults.FILE_NOT_FOUND + "," +
+                //    "Message : File Not Found" +
+                //    "}");
             }
 
             JObject json = JObject.Parse(session);
@@ -495,10 +500,10 @@ namespace Streamer.Controllers
                     this.logger.LogError(new EventId(123), ex.Message);
                     zipOutputStream.Finish();
                     zipOutputStream.Close();
-                    return BadRequest("File Does not exist / have expired");
+                    //return BadRequest("File Does not exist / have expired");
                 }
             }
-            return Ok(HttpStatusCode.OK);
+            return ;
 
         }
 

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "cPEbrvVbowE995o2ihfIuxFcy5t4NuOgR2SJrg7vlvJ1l9X621eHVaYbS1qL/gg7cQc0rqQXFCmKL+YYp/WBVA==",
+  "dgSpecHash": "W/qIpf0Of6L3WeVDeSOWW/kSiLaYX8+5S1r7++g/KCGSmdSALeyugs6ve1a6aTiKwnMzaQVBN6MHTgy4iIduOw==",
   "success": true,
   "projectFilePath": "E:\\Projects - Others\\ZipZapZwoop\\FileStreamer\\Streamer\\Streamer.csproj",
   "expectedPackageFiles": [
@@ -18,7 +18,7 @@
     "C:\\Users\\Mohammed Hashim\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512",
     "C:\\Users\\Mohammed Hashim\\.nuget\\packages\\system.text.encoding.codepages\\4.7.1\\system.text.encoding.codepages.4.7.1.nupkg.sha512",
     "C:\\Users\\Mohammed Hashim\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512",
-    "C:\\Users\\Mohammed Hashim\\.nuget\\packages\\microsoft.netcore.app.host.linux-x64\\3.1.27\\microsoft.netcore.app.host.linux-x64.3.1.27.nupkg.sha512"
+    "C:\\Users\\Mohammed Hashim\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.27\\microsoft.netcore.app.host.win-x64.3.1.27.nupkg.sha512"
   ],
   "logs": [
     {
@@ -28,8 +28,7 @@
       "message": "Detected package version outside of dependency constraint: AWSSDK.S3 3.3.110.19 requires AWSSDK.Core (>= 3.3.104.21 && < 3.4.0) but version AWSSDK.Core 3.7.12.21 was resolved.",
       "libraryId": "AWSSDK.Core",
       "targetGraphs": [
-        ".NETCoreApp,Version=v3.1",
-        ".NETCoreApp,Version=v3.1/linux-x64"
+        ".NETCoreApp,Version=v3.1"
       ]
     }
   ]

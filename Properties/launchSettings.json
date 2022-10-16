@@ -12,7 +12,7 @@
     "IIS Express": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "download/6a1830ca-fa95-47a5-a42d-64d77406719d",
+      "launchUrl": "download/49905f91-c895-4d82-9042-9637076f78c2",
       "TableName": "Session-uwm6jl64dfcbrgnkyratx7wdim-dev",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
@@ -23,7 +23,7 @@
     "Streamer": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "download/public/6a1830ca-fa95-47a5-a42d-64d77406719d",
+      "launchUrl": "download/49905f91-c895-4d82-9042-9637076f78c2",
       "TableName": "Session-qkijcxv4zrfbdf4hzhzqotmp6a-prod",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
