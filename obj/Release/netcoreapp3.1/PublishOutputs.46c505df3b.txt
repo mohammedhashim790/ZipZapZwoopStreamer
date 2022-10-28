@@ -1,0 +1,16 @@
+C:\Users\Mohammed Hashim\AppData\Local\Temp\8e767df2-e3cb-4666-849f-7aa445830526\Streamer.exe
+C:\Users\Mohammed Hashim\AppData\Local\Temp\8e767df2-e3cb-4666-849f-7aa445830526\appsettings.Development.json
+C:\Users\Mohammed Hashim\AppData\Local\Temp\8e767df2-e3cb-4666-849f-7aa445830526\appsettings.json
+C:\Users\Mohammed Hashim\AppData\Local\Temp\8e767df2-e3cb-4666-849f-7aa445830526\aws-beanstalk-tools-defaults.json
+C:\Users\Mohammed Hashim\AppData\Local\Temp\8e767df2-e3cb-4666-849f-7aa445830526\Streamer.dll
+C:\Users\Mohammed Hashim\AppData\Local\Temp\8e767df2-e3cb-4666-849f-7aa445830526\Streamer.deps.json
+C:\Users\Mohammed Hashim\AppData\Local\Temp\8e767df2-e3cb-4666-849f-7aa445830526\Streamer.runtimeconfig.json
+C:\Users\Mohammed Hashim\AppData\Local\Temp\8e767df2-e3cb-4666-849f-7aa445830526\Streamer.pdb
+C:\Users\Mohammed Hashim\AppData\Local\Temp\8e767df2-e3cb-4666-849f-7aa445830526\AWSSDK.Core.dll
+C:\Users\Mohammed Hashim\AppData\Local\Temp\8e767df2-e3cb-4666-849f-7aa445830526\AWSSDK.DynamoDBv2.dll
+C:\Users\Mohammed Hashim\AppData\Local\Temp\8e767df2-e3cb-4666-849f-7aa445830526\AWSSDK.S3.dll
+C:\Users\Mohammed Hashim\AppData\Local\Temp\8e767df2-e3cb-4666-849f-7aa445830526\DotNetZip.dll
+C:\Users\Mohammed Hashim\AppData\Local\Temp\8e767df2-e3cb-4666-849f-7aa445830526\Newtonsoft.Json.dll
+C:\Users\Mohammed Hashim\AppData\Local\Temp\8e767df2-e3cb-4666-849f-7aa445830526\ICSharpCode.SharpZipLib.dll
+C:\Users\Mohammed Hashim\AppData\Local\Temp\8e767df2-e3cb-4666-849f-7aa445830526\System.Text.Encoding.CodePages.dll
+C:\Users\Mohammed Hashim\AppData\Local\Temp\8e767df2-e3cb-4666-849f-7aa445830526\runtimes\win\lib\netcoreapp2.0\System.Text.Encoding.CodePages.dll

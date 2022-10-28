@@ -429,6 +429,15 @@ namespace Streamer.Controllers
                         HttpWebRequest myHttpWebRequest = (HttpWebRequest)
                             WebRequest.Create(fileUrl);
 
+                        
+                        
+                        //NewChange for connection Reset by Peer
+
+                        myHttpWebRequest.KeepAlive = false;
+                        myHttpWebRequest.ProtocolVersion = HttpVersion.Version10;
+
+
+
                         HttpWebResponse myHttpWebResponse = (HttpWebResponse)myHttpWebRequest.GetResponse();
 
                         System.Diagnostics.Trace.WriteLine("   ");

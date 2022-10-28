@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "W/qIpf0Of6L3WeVDeSOWW/kSiLaYX8+5S1r7++g/KCGSmdSALeyugs6ve1a6aTiKwnMzaQVBN6MHTgy4iIduOw==",
+  "dgSpecHash": "ukh2YMtziQzoeaaChTPGyo1RGz8WgarPl2N0giwFXWBlP/TRFbIRic31cakyeiE3aomjhLIoi0bOkUxREcOoRw==",
   "success": true,
-  "projectFilePath": "E:\\Projects - Others\\ZipZapZwoop\\FileStreamer\\Streamer\\Streamer.csproj",
+  "projectFilePath": "D:\\Programs\\zipzapzwoop\\Streamer\\Streamer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Mohammed Hashim\\.nuget\\packages\\awssdk.core\\3.7.12.21\\awssdk.core.3.7.12.21.nupkg.sha512",
     "C:\\Users\\Mohammed Hashim\\.nuget\\packages\\awssdk.dynamodbv2\\3.7.3.68\\awssdk.dynamodbv2.3.7.3.68.nupkg.sha512",

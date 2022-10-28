@@ -1,0 +1,22 @@
+
+{
+    "region" : "us-east-1",
+    "configuration" : "Release",
+    "framework"     : "netcoreapp3.1",
+    "self-contained" : false,
+    "application"    : "Streamer",
+    "environment"    : "Streamer-prod",
+    "enable-xray"    : true,
+    "enhanced-health-type" : "enhanced",
+    "additional-options"   : "",
+    "solution-stack"       : "64bit Amazon Linux 2 v2.3.4 running .NET Core",
+    "environment-type"     : "LoadBalanced",
+    "cname"                : "streamer-prod",
+    "instance-type"        : "t3a.medium",
+    "key-pair"             : "ZipS3File",
+    "instance-profile"     : "aws-elasticbeanstalk-ec2-role",
+    "service-role"         : "aws-elasticbeanstalk-service-role",
+    "proxy-server"         : "nginx",
+    "loadbalancer-type"    : "application",
+    "health-check-url"     : "/"
+}

@@ -656,11 +656,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Projects - Others\\ZipZapZwoop\\FileStreamer\\Streamer\\Streamer.csproj",
+      "projectUniqueName": "D:\\Programs\\zipzapzwoop\\Streamer\\Streamer.csproj",
       "projectName": "Streamer",
-      "projectPath": "E:\\Projects - Others\\ZipZapZwoop\\FileStreamer\\Streamer\\Streamer.csproj",
+      "projectPath": "D:\\Programs\\zipzapzwoop\\Streamer\\Streamer.csproj",
       "packagesPath": "C:\\Users\\Mohammed Hashim\\.nuget\\packages\\",
-      "outputPath": "E:\\Projects - Others\\ZipZapZwoop\\FileStreamer\\Streamer\\obj\\",
+      "outputPath": "D:\\Programs\\zipzapzwoop\\Streamer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"

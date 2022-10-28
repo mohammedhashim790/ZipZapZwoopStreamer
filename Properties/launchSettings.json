@@ -23,7 +23,7 @@
     "Streamer": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "download/49905f91-c895-4d82-9042-9637076f78c2",
+      "launchUrl": "download/63c9dd80-76bb-4bf0-96ad-6f1585e421c9",
       "TableName": "Session-qkijcxv4zrfbdf4hzhzqotmp6a-prod",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
