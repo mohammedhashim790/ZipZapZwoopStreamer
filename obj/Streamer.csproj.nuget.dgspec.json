@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Programs\\zipzapzwoop\\Streamer\\Streamer.csproj": {}
+    "D:\\zipzapzwoop\\Streamer\\Streamer.csproj": {}
   },
   "projects": {
-    "D:\\Programs\\zipzapzwoop\\Streamer\\Streamer.csproj": {
+    "D:\\zipzapzwoop\\Streamer\\Streamer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Programs\\zipzapzwoop\\Streamer\\Streamer.csproj",
+        "projectUniqueName": "D:\\zipzapzwoop\\Streamer\\Streamer.csproj",
         "projectName": "Streamer",
-        "projectPath": "D:\\Programs\\zipzapzwoop\\Streamer\\Streamer.csproj",
+        "projectPath": "D:\\zipzapzwoop\\Streamer\\Streamer.csproj",
         "packagesPath": "C:\\Users\\Mohammed Hashim\\.nuget\\packages\\",
-        "outputPath": "D:\\Programs\\zipzapzwoop\\Streamer\\obj\\",
+        "outputPath": "D:\\zipzapzwoop\\Streamer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"

@@ -73,8 +73,8 @@ namespace Streamer.Controllers
 
             this.environment = environment;
             this.logger = logger;
-            System.Diagnostics.Trace.WriteLine("Table Name");
-            System.Diagnostics.Trace.WriteLine(System.Environment.GetEnvironmentVariable("SessionTableName"));
+            printLog<string>("Table Name");
+            printLog<string>(System.Environment.GetEnvironmentVariable("SessionTableName"));
             int a = 1;
 
             awsHelper = new AWSHelper(System.Environment.GetEnvironmentVariable("SessionTableName"));
@@ -104,13 +104,13 @@ namespace Streamer.Controllers
             [FromRoute] string sessionId
             )
         {
-            System.Diagnostics.Trace.WriteLine("**********************");
-            System.Diagnostics.Trace.WriteLine("    ");
-            System.Diagnostics.Trace.WriteLine(sessionId);
-            System.Diagnostics.Trace.WriteLine("    ");
-            System.Diagnostics.Trace.WriteLine(accessSpecifier);
-            System.Diagnostics.Trace.WriteLine("    ");
-            System.Diagnostics.Trace.WriteLine("**********************");
+            printLog<string>("**********************");
+            printLog<string>("    ");
+            printLog<string>(sessionId);
+            printLog<string>("    ");
+            printLog<string>(accessSpecifier);
+            printLog<string>("    ");
+            printLog<string>("**********************");
 
 
             this.logger.LogInformation("**********************");
@@ -128,7 +128,7 @@ namespace Streamer.Controllers
             String compressedFileName = this.FileName + "_" + DateTime.Now.ToShortDateString();
 
             //sessionId = this.ConvertUUIDStandard(sessionId);
-            System.Diagnostics.Trace.WriteLine(sessionId);
+            printLog<string>(sessionId);
 
             String session = this.GetSession(sessionId);
 
@@ -138,7 +138,7 @@ namespace Streamer.Controllers
             List<FileObjectParams> files = new List<FileObjectParams>();
 
 
-            System.Diagnostics.Trace.WriteLine("Intialising ");
+            printLog<string>("Intialising ");
             this.logger.LogInformation("Intialising ");
 
             var fileList = json["files"].ToList();
@@ -157,11 +157,11 @@ namespace Streamer.Controllers
                     );
             }
 
-            System.Diagnostics.Trace.WriteLine(files.Count);
-            System.Diagnostics.Trace.WriteLine(files[0]);
+            printLog<string>("Total Files Count " + files.Count.ToString());
+            printLog<string>(files[0].ToString());
             this.logger.LogInformation(files[0].ToString());
 
-            System.Diagnostics.Trace.WriteLine("Intialised ");
+            printLog<string>("Intialised ");
 
 
             this.logger.LogInformation("Intialised ");
@@ -189,7 +189,7 @@ namespace Streamer.Controllers
                     {
                         var name = (file.relativePath == null || file.relativePath == "") ? file.key : file.relativePath;
 
-                        System.Diagnostics.Trace.WriteLine(name);
+                        printLog<string>(name);
 
                         this.logger.LogInformation(name);
 
@@ -205,7 +205,7 @@ namespace Streamer.Controllers
                                 file.key
                                 );
 
-                        System.Diagnostics.Trace.WriteLine(fileUrl);
+                        printLog<string>(fileUrl);
 
 
                         this.logger.LogInformation(fileUrl);
@@ -215,15 +215,15 @@ namespace Streamer.Controllers
 
                         HttpWebResponse myHttpWebResponse = (HttpWebResponse)myHttpWebRequest.GetResponse();
 
-                        System.Diagnostics.Trace.WriteLine("   ");
-                        System.Diagnostics.Trace.WriteLine("   ");
-                        System.Diagnostics.Trace.WriteLine("   ");
-                        System.Diagnostics.Trace.WriteLine("   ");
+                        printLog<string>("   ");
+                        printLog<string>("   ");
+                        printLog<string>("   ");
+                        printLog<string>("   ");
 
-                        System.Diagnostics.Trace.WriteLine("Reading Files " + file.key);
-                        System.Diagnostics.Trace.WriteLine(myHttpWebResponse.ContentType);
-                        System.Diagnostics.Trace.WriteLine(myHttpWebResponse.ContentLength);
-                        //System.Diagnostics.Trace.WriteLine(myHttpWebResponse.Headers);
+                        printLog<string>("Reading Files " + file.key);
+                        printLog<string>(myHttpWebResponse.ContentType);
+                        printLog<long>(myHttpWebResponse.ContentLength);
+                        //printLog<string>(myHttpWebResponse.Headers);
 
                         Stream receiveStream = myHttpWebResponse.GetResponseStream();
                         Encoding encode = System.Text.Encoding.GetEncoding("utf-8");
@@ -248,19 +248,19 @@ namespace Streamer.Controllers
                                 sourceBytes = readstream.Read(buffer, 0, buffer.Length);
                                 if (sourceBytes != 0)
                                 {
-                                    //System.Diagnostics.Trace.WriteLine(Encoding.ASCII.GetString(buffer));
+                                    //printLog<string>(Encoding.ASCII.GetString(buffer));
                                     zipOutputStream.Write(buffer, 0, sourceBytes);
                                     total += sourceBytes;
                                 }
 
                             } while (sourceBytes > 0);
                         }
-                        System.Diagnostics.Trace.WriteLine(file.key + " Completed");
+                        printLog<string>(file.key + " Completed");
 
                         this.logger.LogInformation(file.key + " Completed");
 
 
-                        System.Diagnostics.Trace.WriteLine(myHttpWebResponse.ContentLength + " Acc : " + total);
+                        printLog<string>(myHttpWebResponse.ContentLength + " Acc : " + total);
 
 
                         this.logger.LogInformation(myHttpWebResponse.ContentLength + " Acc : " + total);
@@ -289,6 +289,35 @@ namespace Streamer.Controllers
 
         }
 
+
+
+
+        public void printLog<T>(T message)
+        {
+            System.Diagnostics.Trace.WriteLine("\n\n\n\n");
+            System.Diagnostics.Trace.WriteLine(message);
+            System.Diagnostics.Trace.WriteLine("\n\n\n\n");
+            this.logger.LogInformation("\n\n\n\n");
+            this.logger.LogInformation(message.ToString());
+            this.logger.LogInformation("\n\n\n\n");
+        }
+
+        public void printError(Exception exception)
+        {
+            System.Diagnostics.Trace.WriteLine("\n\nError\n");
+            System.Diagnostics.Trace.WriteLine("\n\n\n\n");
+            System.Diagnostics.Trace.WriteLine(exception);
+            System.Diagnostics.Trace.WriteLine("\n\n\n\n");
+            this.logger.LogInformation("\n\nError\n");
+            this.logger.LogInformation("\n\n\n\n");
+            this.logger.LogError(exception.ToString());
+            this.logger.LogInformation("\n\n\n\n");
+        }
+
+
+
+
+
         [HttpGet("Check")]
         public string GetQueryCheck(
             int id,int temp1,string temp2) {
@@ -305,27 +334,24 @@ namespace Streamer.Controllers
 
             this.logger.LogInformation("Reading from Default Public");
 
-            System.Diagnostics.Trace.WriteLine("Reading from Default Public");
+            printLog<string>("Reading from Default Public");
 
 
 
             String accessSpecifier = "public";
-            System.Diagnostics.Trace.WriteLine("**********************");
-            System.Diagnostics.Trace.WriteLine("    ");
-            System.Diagnostics.Trace.WriteLine(sessionId);
-            System.Diagnostics.Trace.WriteLine("    ");
-            System.Diagnostics.Trace.WriteLine(accessSpecifier);
-            System.Diagnostics.Trace.WriteLine("    ");
-            System.Diagnostics.Trace.WriteLine("**********************");
+            printLog<string>("**********************");
+            printLog<string>(sessionId);
+            printLog<string>(accessSpecifier);
+            printLog<string>("**********************");
 
 
-            this.logger.LogInformation("**********************");
-            this.logger.LogInformation("    ");
-            this.logger.LogInformation(sessionId);
-            this.logger.LogInformation("    ");
-            this.logger.LogInformation(accessSpecifier);
-            this.logger.LogInformation("    ");
-            this.logger.LogInformation("**********************");
+            //this.logger.LogInformation("**********************");
+            //this.logger.LogInformation("    ");
+            //this.logger.LogInformation(sessionId);
+            //this.logger.LogInformation("    ");
+            //this.logger.LogInformation(accessSpecifier);
+            //this.logger.LogInformation("    ");
+            //this.logger.LogInformation("**********************");
 
 
 
@@ -334,7 +360,7 @@ namespace Streamer.Controllers
             String compressedFileName = this.FileName + "_" + DateTime.Now.ToShortDateString();
 
             //sessionId = this.ConvertUUIDStandard(sessionId);
-            System.Diagnostics.Trace.WriteLine(sessionId);
+            printLog<string>(sessionId);
 
             String session = this.GetSession(sessionId);
 
@@ -353,8 +379,8 @@ namespace Streamer.Controllers
             List<FileObjectParams> files = new List<FileObjectParams>();
 
 
-            System.Diagnostics.Trace.WriteLine("Intialising ");
-            this.logger.LogInformation("Intialising ");
+            printLog<string>("Intialising ");
+            //this.logger.LogInformation("Intialising ");
 
             var fileList = json["files"].ToList();
             for (var iter = 0; iter < fileList.Count; iter++)
@@ -372,14 +398,14 @@ namespace Streamer.Controllers
                     );
             }
 
-            System.Diagnostics.Trace.WriteLine(files.Count);
-            System.Diagnostics.Trace.WriteLine(files[0]);
-            this.logger.LogInformation(files[0].ToString());
+            printLog<string>(" Total Files Count : " + files.Count);
+            printLog<FileObjectParams>(files[0]);
+            //this.logger.LogInformation(files[0].ToString());
 
-            System.Diagnostics.Trace.WriteLine("Intialised ");
+            printLog<string>("Intialised ");
 
 
-            this.logger.LogInformation("Intialised ");
+            //this.logger.LogInformation("Intialised ");
 
 
 
@@ -405,9 +431,9 @@ namespace Streamer.Controllers
                     {
                         var name = (file.relativePath == null || file.relativePath == "") ? file.key : file.relativePath;
 
-                        System.Diagnostics.Trace.WriteLine(name);
+                        printLog<string>(name);
 
-                        this.logger.LogInformation(name);
+                        //this.logger.LogInformation(name);
 
 
                         ZipEntry zipEntry = new ZipEntry(name);
@@ -421,10 +447,10 @@ namespace Streamer.Controllers
                                 file.key
                                 );
 
-                        System.Diagnostics.Trace.WriteLine(fileUrl);
+                        printLog<string>(fileUrl);
 
 
-                        this.logger.LogInformation(fileUrl);
+                        //this.logger.LogInformation(fileUrl);
 
                         HttpWebRequest myHttpWebRequest = (HttpWebRequest)
                             WebRequest.Create(fileUrl);
@@ -440,15 +466,10 @@ namespace Streamer.Controllers
 
                         HttpWebResponse myHttpWebResponse = (HttpWebResponse)myHttpWebRequest.GetResponse();
 
-                        System.Diagnostics.Trace.WriteLine("   ");
-                        System.Diagnostics.Trace.WriteLine("   ");
-                        System.Diagnostics.Trace.WriteLine("   ");
-                        System.Diagnostics.Trace.WriteLine("   ");
-
-                        System.Diagnostics.Trace.WriteLine("Reading Files " + file.key);
-                        System.Diagnostics.Trace.WriteLine(myHttpWebResponse.ContentType);
-                        System.Diagnostics.Trace.WriteLine(myHttpWebResponse.ContentLength);
-                        //System.Diagnostics.Trace.WriteLine(myHttpWebResponse.Headers);
+                        printLog<string>("Reading File " + file.key);
+                        printLog<string>(myHttpWebResponse.ContentType);
+                        printLog<long>(myHttpWebResponse.ContentLength);
+                        //printLog<string>(myHttpWebResponse.Headers);
 
                         Stream receiveStream = myHttpWebResponse.GetResponseStream();
                         Encoding encode = System.Text.Encoding.GetEncoding("utf-8");
@@ -473,28 +494,28 @@ namespace Streamer.Controllers
                                 sourceBytes = readstream.Read(buffer, 0, buffer.Length);
                                 if (sourceBytes != 0)
                                 {
-                                    //System.Diagnostics.Trace.WriteLine(Encoding.ASCII.GetString(buffer));
+                                    //printLog<string>(Encoding.ASCII.GetString(buffer));
                                     zipOutputStream.Write(buffer, 0, sourceBytes);
                                     total += sourceBytes;
                                 }
 
                             } while (sourceBytes > 0);
                         }
-                        System.Diagnostics.Trace.WriteLine(file.key + " Completed");
+                        printLog<string>(file.key + " Completed");
 
-                        this.logger.LogInformation(file.key + " Completed");
-
-
-                        System.Diagnostics.Trace.WriteLine(myHttpWebResponse.ContentLength + " Acc : " + total);
+                        //this.logger.LogInformation(file.key + " Completed");
 
 
-                        this.logger.LogInformation(myHttpWebResponse.ContentLength + " Acc : " + total);
+                        printLog<string>(myHttpWebResponse.ContentLength + " Acc : " + total);
+
+
+                        //this.logger.LogInformation(myHttpWebResponse.ContentLength + " Acc : " + total);
 
 
 
                         zipOutputStream.CloseEntry();
 
-                        this.logger.LogInformation("Exiting From App");
+                        //this.logger.LogInformation("Exiting From App");
 
 
 
@@ -505,9 +526,10 @@ namespace Streamer.Controllers
                 catch (Exception ex)
                 {
 
-                    this.logger.LogInformation(ex.Message);
-                    this.logger.LogError(new EventId(123), ex.Message);
-                    zipOutputStream.Finish();
+                    printError(ex);
+
+                    printLog("Error Occured : \n" + ex.Message);
+
                     zipOutputStream.Close();
                     //return BadRequest("File Does not exist / have expired");
                 }
@@ -518,7 +540,7 @@ namespace Streamer.Controllers
 
         public string ConvertUUIDStandard(string sessionID)
         {
-            System.Diagnostics.Trace.WriteLine(sessionID.Length);
+            printLog<int>(sessionID.Length);
             var first = sessionID.Substring(0, 8);
             var second = sessionID.Substring(8, 12);
             var third = sessionID.Substring(12, 16);
@@ -543,7 +565,7 @@ namespace Streamer.Controllers
             Char[] read = new Char[256];
 
             int count = readStream.Read(read, 0, 256);
-            System.Diagnostics.Trace.WriteLine("HTML...\r\n");
+            printLog<string>("HTML...\r\n");
             while (count > 0)
             {
 
