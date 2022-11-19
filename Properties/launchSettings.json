@@ -12,18 +12,18 @@
     "IIS Express": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "download/49905f91-c895-4d82-9042-9637076f78c2",
-      "TableName": "Session-uwm6jl64dfcbrgnkyratx7wdim-dev",
+      "launchUrl": "download/be1bb7e0-7b91-468e-9ae1-d539deaa2ee5",
+      "TableName": "Session-gga4xh5jfzdc3j6pexahhkeway-dev",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "SessionTableName": "Session-2adlfeoqwvgqhh3rrhfbn6shbq-dev",
-        "StorageURL": "https://zipzapzwoop-storage115812-dev.s3.ap-south-1.amazonaws.com/public/res"
+        "SessionTableName": "Session-gga4xh5jfzdc3j6pexahhkeway-dev",
+        "StorageURL": "https://zipzapzwoop-storage84110-dev.s3.ap-south-1.amazonaws.com/public/res"
       }
     },
     "Streamer": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "download/56beb6fb-3729-47bc-9202-6a5b6790bc6e",
+      "launchUrl": "download/be1bb7e0-7b91-468e-9ae1-d539deaa2ee5",
       "TableName": "Session-qkijcxv4zrfbdf4hzhzqotmp6a-prod",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",

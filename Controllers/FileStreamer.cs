@@ -335,6 +335,7 @@ namespace Streamer.Controllers
             this.logger.LogInformation("Reading from Default Public");
 
             printLog<string>("Reading from Default Public");
+            printLog<string>("Redeployed New V1");
 
 
 
@@ -342,24 +343,15 @@ namespace Streamer.Controllers
             printLog<string>("**********************");
             printLog<string>(sessionId);
             printLog<string>(accessSpecifier);
+            printLog<string>("12356");
             printLog<string>("**********************");
-
-
-            //this.logger.LogInformation("**********************");
-            //this.logger.LogInformation("    ");
-            //this.logger.LogInformation(sessionId);
-            //this.logger.LogInformation("    ");
-            //this.logger.LogInformation(accessSpecifier);
-            //this.logger.LogInformation("    ");
-            //this.logger.LogInformation("**********************");
-
 
 
 
 
             String compressedFileName = this.FileName + "_" + DateTime.Now.ToShortDateString();
 
-            //sessionId = this.ConvertUUIDStandard(sessionId);
+
             printLog<string>(sessionId);
 
             String session = this.GetSession(sessionId);
@@ -367,10 +359,6 @@ namespace Streamer.Controllers
             if(session == "None")
             {
                 return; 
-                //BadRequest("{" +
-                //    "id : " + ZipFileObjectResults.FILE_NOT_FOUND + "," +
-                //    "Message : File Not Found" +
-                //    "}");
             }
 
             JObject json = JObject.Parse(session);
@@ -380,7 +368,6 @@ namespace Streamer.Controllers
 
 
             printLog<string>("Intialising ");
-            //this.logger.LogInformation("Intialising ");
 
             var fileList = json["files"].ToList();
             for (var iter = 0; iter < fileList.Count; iter++)
@@ -400,25 +387,21 @@ namespace Streamer.Controllers
 
             printLog<string>(" Total Files Count : " + files.Count);
             printLog<FileObjectParams>(files[0]);
-            //this.logger.LogInformation(files[0].ToString());
 
             printLog<string>("Intialised ");
 
 
-            //this.logger.LogInformation("Intialised ");
 
 
 
 
             Response.Headers.Add("Content-Disposition", "attachment; filename=" + compressedFileName + ".zip");
 
-            //Response.Headers.Add("Transfer-Encoding", "identity");
 
 
             Response.ContentType = "application/zip";
 
 
-            //Response.ContentLength = long.Parse(json["fileSize"].ToString())-205;
 
             using (ZipOutputStream zipOutputStream = new ZipOutputStream(Response.Body))
             {
@@ -433,7 +416,6 @@ namespace Streamer.Controllers
 
                         printLog<string>(name);
 
-                        //this.logger.LogInformation(name);
 
 
                         ZipEntry zipEntry = new ZipEntry(name);
@@ -450,16 +432,18 @@ namespace Streamer.Controllers
                         printLog<string>(fileUrl);
 
 
-                        //this.logger.LogInformation(fileUrl);
 
                         HttpWebRequest myHttpWebRequest = (HttpWebRequest)
                             WebRequest.Create(fileUrl);
 
-                        
-                        
+
+                        ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072 | (SecurityProtocolType)768;
+
+
+
                         //NewChange for connection Reset by Peer
 
-                        myHttpWebRequest.KeepAlive = false;
+                        myHttpWebRequest.KeepAlive = true;
                         myHttpWebRequest.ProtocolVersion = HttpVersion.Version10;
 
 
@@ -469,53 +453,62 @@ namespace Streamer.Controllers
                         printLog<string>("Reading File " + file.key);
                         printLog<string>(myHttpWebResponse.ContentType);
                         printLog<long>(myHttpWebResponse.ContentLength);
-                        //printLog<string>(myHttpWebResponse.Headers);
+
+                        long byteContentLength = myHttpWebResponse.ContentLength;
+
 
                         Stream receiveStream = myHttpWebResponse.GetResponseStream();
                         Encoding encode = System.Text.Encoding.GetEncoding("utf-8");
 
 
-                        //StreamReader readStream = new StreamReader(receiveStream, encode);
                         BinaryReader readStream = new BinaryReader(receiveStream, new UTF8Encoding(false));
 
 
 
                         byte[] buffer = new byte[1024];
                         int sourceBytes = 0;
-                        int total = 0;
+                        long total = 0;
 
                         String line = String.Empty;
 
 
-                        using (BinaryReader readstream = new BinaryReader(receiveStream))
+                        using (BinaryReader readstream = new BinaryReader(receiveStream, new UTF8Encoding(true)))
                         {
                             do
                             {
-                                sourceBytes = readstream.Read(buffer, 0, buffer.Length);
-                                if (sourceBytes != 0)
+                                try
                                 {
-                                    //printLog<string>(Encoding.ASCII.GetString(buffer));
-                                    zipOutputStream.Write(buffer, 0, sourceBytes);
-                                    total += sourceBytes;
+                                    sourceBytes = readstream.Read(buffer, 0, buffer.Length);
+
+                                    printLog(String.Format("Received {0} / Total {1} , {2}", total, byteContentLength,sourceBytes));
+
+                                    if (sourceBytes != 0)
+                                    {
+                                        zipOutputStream.Write(buffer, 0, sourceBytes);
+                                        total += sourceBytes;
+                                    }
+                                }
+                                catch(Exception e)
+                                {
+                                    printLog<string>(String.Format("Source bytes {0}",sourceBytes));
+                                    printLog<string>("Error Caused " + e.Message);
+                                    //sourceBytes = 1;
                                 }
 
                             } while (sourceBytes > 0);
                         }
                         printLog<string>(file.key + " Completed");
 
-                        //this.logger.LogInformation(file.key + " Completed");
 
 
                         printLog<string>(myHttpWebResponse.ContentLength + " Acc : " + total);
 
 
-                        //this.logger.LogInformation(myHttpWebResponse.ContentLength + " Acc : " + total);
 
 
 
                         zipOutputStream.CloseEntry();
 
-                        //this.logger.LogInformation("Exiting From App");
 
 
 
@@ -531,7 +524,6 @@ namespace Streamer.Controllers
                     printLog("Error Occured : \n" + ex.Message);
 
                     zipOutputStream.Close();
-                    //return BadRequest("File Does not exist / have expired");
                 }
             }
             return ;
