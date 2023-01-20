@@ -431,13 +431,16 @@ namespace Streamer.Controllers
 
                         printLog<string>(fileUrl);
 
+                        ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072 | (SecurityProtocolType)768;
+
+
+                        //ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3;
 
 
                         HttpWebRequest myHttpWebRequest = (HttpWebRequest)
                             WebRequest.Create(fileUrl);
 
 
-                        ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072 | (SecurityProtocolType)768;
 
 
 
