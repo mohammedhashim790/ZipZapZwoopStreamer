@@ -12,7 +12,7 @@
     "IIS Express": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "download/be1bb7e0-7b91-468e-9ae1-d539deaa2ee5",
+      "launchUrl": "download/Env",
       "TableName": "Session-gga4xh5jfzdc3j6pexahhkeway-dev",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
